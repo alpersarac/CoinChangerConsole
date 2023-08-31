@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoinChangerRepository.cs" />
+    <Compile Include="Repository\CoinChangerRepository.cs" />
     <Compile Include="IRepository\ICoinChangerRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
