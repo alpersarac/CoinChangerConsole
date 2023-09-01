@@ -16,20 +16,20 @@ namespace CoinChangerConsole
             CreateListOfCombination(amount, banknotes, 0, new List<int>(), ref combinations);
             return combinations;
         }
-        private void CreateListOfCombination(int amount, int[] banknotes, int nextBanknoteIndex, List<int> currentSenario, ref List<List<int>> combinations)
+        private void CreateListOfCombination(int amount, int[] banknotes, int nextBanknoteIndex, List<int> currentCombination, ref List<List<int>> combinations)
         {
             if (amount==0)
             {
-                combinations.Add(new List<int>(currentSenario));
+                combinations.Add(new List<int>(currentCombination));
                 return;
             }
             for (int i = nextBanknoteIndex; i < banknotes.Length; i++)
             {
                 if (amount >= banknotes[i])
                 {
-                    currentSenario.Add(banknotes[i]);
-                    CreateListOfCombination(amount- banknotes[i], banknotes,i,currentSenario,ref combinations);
-                    currentSenario.RemoveAt(currentSenario.Count-1);
+                    currentCombination.Add(banknotes[i]);
+                    CreateListOfCombination(amount- banknotes[i], banknotes,i, currentCombination, ref combinations);
+                    currentCombination.RemoveAt(currentCombination.Count-1);
                 }
             }
         }
