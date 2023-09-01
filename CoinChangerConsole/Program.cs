@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CoinChangerConsole.Utility.Printer;
+using CoinChangerConsole.Utility.Statics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +12,11 @@ namespace CoinChangerConsole
     {
         static void Main(string[] args)
         {
-            const int amount = 15;
-            int[] banknotes = new int[] { 25, 10, 5, 1 };
-
             CoinChangerRepository coinChangerRepository = new CoinChangerRepository();
-            List<List<int>> combinations =  coinChangerRepository.GetListOfCombinations(amount, banknotes);
+            CoinChangerPrinter coinChangerPrinter = new CoinChangerPrinter();
+
+            List<List<int>> combinations =  coinChangerRepository.GetListOfCombinations(SD.amount, SD.banknotes);
+            coinChangerPrinter.Print(combinations);
 
             Console.ReadLine();
         }
